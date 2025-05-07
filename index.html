@@ -33,9 +33,28 @@
     hr {
       margin: 2rem 0;
     }
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+    #mensaje {
+      background-color: #e0f7fa;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #007acc;
+    }
   </style>
 </head>
 <body>
+
+  <div id="mensaje"></div>
 
   <h1>👋 ¡Hola! Soy Nassim</h1>
   <p>🎯 <strong>Desarrollador Web Full Stack</strong> con enfoque en backend, especializado en <strong>NestJS</strong>, <strong>PostgreSQL</strong> y <strong>TypeORM</strong>, junto a otras tecnologías modernas del ecosistema web.</p>
@@ -62,11 +81,15 @@
 
   <h2>🛠️ Proyectos destacados</h2>
 
-  <h3>🛒 E-commerce Backend</h3>
-  <p>CRUD completo de usuarios y productos, autenticación con JWT, control de acceso por roles, relaciones N:M entre productos y órdenes, subida de imágenes a Cloudinary. Documentado con Swagger y testeado con Jest.</p>
+  <button onclick="toggleProyectos()">Mostrar / Ocultar proyectos</button>
 
-  <h3>📅 Gestión de Turnos</h3>
-  <p>Aplicación para agendar turnos con autenticación, validación de horarios hábiles, cancelación previa y entidades bien definidas. Incluye subida de imagen de perfil y envío de email de confirmación.</p>
+  <div id="proyectos">
+    <h3>🛒 E-commerce Backend</h3>
+    <p>CRUD completo de usuarios y productos, autenticación con JWT, control de acceso por roles, relaciones N:M entre productos y órdenes, subida de imágenes a Cloudinary. Documentado con Swagger y testeado con Jest.</p>
+
+    <h3>📅 Gestión de Turnos</h3>
+    <p>Aplicación para agendar turnos con autenticación, validación de horarios hábiles, cancelación previa y entidades bien definidas. Incluye subida de imagen de perfil y envío de email de confirmación.</p>
+  </div>
 
   <hr />
 
@@ -86,6 +109,27 @@
   </ul>
 
   <p><em>🧠 Gracias por visitar mi portafolio. Estoy abierto a nuevas oportunidades y desafíos profesionales.</em></p>
+
+  <script>
+    // Mostrar mensaje dinámico
+    const mensaje = document.getElementById("mensaje");
+    const saludos = [
+      "¡Bienvenido a mi portafolio!",
+      "Gracias por pasar por aquí 👨‍💻",
+      "¿Buscás un dev backend confiable? ¡Aquí estoy!",
+      "🚀 Preparado para nuevos desafíos..."
+    ];
+    mensaje.innerText = saludos[Math.floor(Math.random() * saludos.length)];
+
+    // Ocultar/mostrar proyectos
+    function toggleProyectos() {
+      const proyectos = document.getElementById("proyectos");
+      proyectos.style.display = proyectos.style.display === "none" ? "block" : "none";
+    }
+
+    // Ocultar inicialmente
+    document.getElementById("proyectos").style.display = "none";
+  </script>
 
 </body>
 </html>
